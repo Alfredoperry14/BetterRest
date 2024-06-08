@@ -59,15 +59,12 @@ struct ContentView: View {
                 
                 Section{
                     Text("You should go to bed at \(formattedBedtime)")
+                        .font(.title)
+                        .bold()
                 }
                 
             }
             .navigationTitle("BetterRest")
-            .alert(alertTitle, isPresented: $showingAlert){
-                Button("OK") {}
-            } message: {
-                Text(alertMessage)
-            }
         }
     }
     
@@ -91,7 +88,7 @@ struct ContentView: View {
     }
     
     var formattedBedtime: String{
-        var bedTimeDate = calculateBedtime()
+        let bedTimeDate = calculateBedtime()
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         return formatter.string(from: bedTimeDate)
